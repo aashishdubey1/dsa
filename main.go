@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	bs "github.com/aashishdubey1/dsa/binary-search/binary-search"
+	searchinsertposition "github.com/aashishdubey1/dsa/binary-search/search-insert-position"
 )
 
 func main(){
@@ -11,9 +11,9 @@ func main(){
 
 	arr := []int{4,5,7,8,12,15,17,19,20}
 
-	target :=  5 
+	target :=  6
 
-	result := bs.BinarySearch(arr,target)
+	result := searchinsertposition.SearchInsert(arr,target)
 
 	fmt.Println(result)
 }
