@@ -1,19 +1,12 @@
 package main
 
-import (
-	"fmt"
-
-	searchinsertposition "github.com/aashishdubey1/dsa/binary-search/search-insert-position"
-)
+import "github.com/aashishdubey1/dsa/trees"
 
 func main(){
-	fmt.Println("Hola dsa")
+	
+	
+	trees.Run()	
 
-	arr := []int{4,5,7,8,12,15,17,19,20}
+	
 
-	target :=  6
-
-	result := searchinsertposition.SearchInsert(arr,target)
-
-	fmt.Println(result)
 }
