@@ -2,43 +2,61 @@ package trees
 
 import "fmt"
 
-type Node struct { 
-	Value int 
-	Left *Node 
-	Right *Node 
-}	
+type Node struct {
+	Value int
+	Left  *Node
+	Right *Node
+}
 
-
-func PreOrder(node *Node) { 
-	if node == nil { 
-		return 
+func PreOrder(node *Node) {
+	if node == nil {
+		return
 	}
 	fmt.Println(node.Value)
 	PreOrder(node.Left)
 	PreOrder(node.Right)
 }
 
-func PostOrder(node *Node) { 
+func PostOrder(node *Node) {
 	if node == nil {
-		return 
+		return
 	}
 	PostOrder(node.Left)
 	PostOrder(node.Right)
 	fmt.Println(node.Value)
 }
 
-func InOrder(node *Node) { 
+func InOrder(node *Node) {
 	if node == nil {
-		return 
+		return
 	}
 	InOrder(node.Left)
 	fmt.Println(node.Value)
 	InOrder(node.Right)
 }
 
+func LevelOrder(node *Node) {
+	if node == nil {
+		return
+	}
+	queue := []*Node{node}
+	for len(queue) > 0 {
+		current := queue[0]
+		queue = queue[1:]
+		fmt.Println(current.Value)
 
+		if current.Left != nil {
+			queue = append(queue, current.Left)
+		}
 
-func Run(){
+		if current.Right != nil {
+			queue = append(queue, current.Right)
+		}
+	}
+
+}
+
+func Run() {
 
 	root := &Node{Value: 1}
 	root.Left = &Node{Value: 2}
@@ -49,3 +67,4 @@ func Run(){
 	PreOrder(root)
 
 }
+
