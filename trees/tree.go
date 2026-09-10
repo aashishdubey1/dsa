@@ -1,6 +1,8 @@
 package trees
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	Value int
@@ -56,6 +58,24 @@ func LevelOrder(node *Node) {
 
 }
 
+func ItretivePreOrder(node *Node) {
+	if node == nil {
+		return
+	}
+	stack := []*Node{node}
+	for len(stack) > 0 {
+		curr := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if curr.Right != nil {
+			stack = append(stack, curr.Right)
+		}
+		if curr.Left != nil {
+			stack = append(stack, curr.Left)
+		}
+		fmt.Println(curr.Value)
+	}
+}
+
 func Run() {
 
 	root := &Node{Value: 1}
@@ -67,4 +87,3 @@ func Run() {
 	PreOrder(root)
 
 }
-
