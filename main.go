@@ -1,12 +1,14 @@
 package main
 
-import "github.com/aashishdubey1/dsa/trees"
+import (
+	linkedlist "github.com/aashishdubey1/dsa/linked-list"
+)
 
-func main(){
-	
-	
-	trees.Run()	
+func main() {
 
-	
+	// trees.Run()
+
+	linkedlist.RunList()
 
 }
+
