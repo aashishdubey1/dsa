@@ -50,6 +50,31 @@ func (list *LinkedList) InsertAtTail(value int) {
 	curr.Next = newNode
 }
 
+func (list *LinkedList) Length() int {
+	count := 0
+	curr := list.Head
+	for curr != nil {
+		count++
+		curr = curr.Next
+	}
+	return count
+}
+
+func (list *LinkedList) Search(value int) bool {
+
+	curr := list.Head
+
+	for curr != nil {
+		if curr.Value == value {
+			return true
+		}
+		curr = curr.Next
+	}
+
+	return false
+
+}
+
 func RunList() {
 
 	list := LinkedList{}
@@ -71,5 +96,7 @@ func RunList() {
 	list.InsertAtHead(2)
 	list.InsertAtTail(5)
 	list.Print()
+	list.Length()
+	fmt.Println(list.Search(5))
 
 }
