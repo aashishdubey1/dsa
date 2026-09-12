@@ -79,7 +79,6 @@ func (list *LinkedList) InsertAt(value int, index int) error {
 	if index < 0 {
 		return errors.New("index cannot be negative")
 	}
-
 	if index == 0 {
 		list.InsertAtHead(value)
 		return nil
@@ -95,11 +94,45 @@ func (list *LinkedList) InsertAt(value int, index int) error {
 	}
 
 	if curr == nil {
-		return errors.New("Index out of range")
+		return errors.New("index out of range")
 	}
 
 	newNode.Next = curr.Next
 	curr.Next = newNode
+
+	return nil
+}
+
+func (list *LinkedList) DeleteAt(index int) error {
+	if index < 0 {
+		return errors.New("index cannot be negative")
+	}
+	if list.Head == nil {
+		return errors.New("empty list ")
+	}
+	if index == 0 {
+		oldHead := list.Head
+		list.Head = oldHead.Next
+		oldHead.Next = nil
+		return nil
+	}
+
+	curr := list.Head
+
+	for range index - 1 {
+		if curr.Next == nil {
+			return errors.New("index out of range")
+		}
+		curr = curr.Next
+	}
+
+	if curr.Next == nil {
+		return errors.New("index out of range")
+	}
+
+	elIndex := curr.Next
+	curr.Next = elIndex.Next
+	elIndex.Next = nil
 
 	return nil
 }
@@ -118,12 +151,13 @@ func RunList() {
 
 	list.Head = a
 
-	err := list.InsertAt(45, -2)
+	err := list.InsertAt(45, 1)
 	if err != nil {
 		fmt.Println(err)
 	}
 	list.Print()
-
+	list.DeleteAt(2)
+	list.Print()
 	// list.Print()
 	// list.InsertAtHead(5)
 	// list.InsertAtHead(10)
