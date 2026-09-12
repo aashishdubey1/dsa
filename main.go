@@ -8,7 +8,9 @@ func main() {
 
 	// trees.Run()
 
-	linkedlist.RunList()
+	//
+	// linkedlist.RunList()
+
+	linkedlist.RunProblems()
 
 }
-
