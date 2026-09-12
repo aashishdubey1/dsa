@@ -1,6 +1,9 @@
 package linkedlist
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // func PrintList(node *Node) {
 // 	curr := node
@@ -61,18 +64,44 @@ func (list *LinkedList) Length() int {
 }
 
 func (list *LinkedList) Search(value int) bool {
-
 	curr := list.Head
-
 	for curr != nil {
 		if curr.Value == value {
 			return true
 		}
 		curr = curr.Next
 	}
-
 	return false
+}
 
+func (list *LinkedList) InsertAt(value int, index int) error {
+
+	if index < 0 {
+		return errors.New("index cannot be negative")
+	}
+
+	if index == 0 {
+		list.InsertAtHead(value)
+		return nil
+	}
+
+	newNode := &Node{Value: value}
+	curr := list.Head
+	for range index - 1 {
+		if curr == nil {
+			return errors.New("index out of range")
+		}
+		curr = curr.Next
+	}
+
+	if curr == nil {
+		return errors.New("Index out of range")
+	}
+
+	newNode.Next = curr.Next
+	curr.Next = newNode
+
+	return nil
 }
 
 func RunList() {
@@ -89,14 +118,20 @@ func RunList() {
 
 	list.Head = a
 
+	err := list.InsertAt(45, -2)
+	if err != nil {
+		fmt.Println(err)
+	}
+	list.Print()
+
 	// list.Print()
 	// list.InsertAtHead(5)
 	// list.InsertAtHead(10)
 	// list.InsertAtHead(19)
-	list.InsertAtHead(2)
-	list.InsertAtTail(5)
-	list.Print()
-	list.Length()
-	fmt.Println(list.Search(5))
+	// list.InsertAtHead(2)
+	// list.InsertAtTail(5)
+	// list.Print()
+	// list.Length()
+	// fmt.Println(list.Search(5))
 
 }
