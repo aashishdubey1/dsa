@@ -43,6 +43,19 @@ func (list *DLL) InsertFirst(val int) {
 	list.Head.Prev = newNode
 	list.Head = newNode
 }
+func (list *DLL) InsertLast(val int) {
+	newNode := &Node{Value: val}
+	if list.Head == nil {
+		list.Head = newNode
+		return
+	}
+	curr := list.Head
+	for curr.Next != nil {
+		curr = curr.Next
+	}
+	newNode.Prev = curr
+	curr.Next = newNode
+}
 
 func RunDLL() {
 
@@ -53,5 +66,6 @@ func RunDLL() {
 	list.InsertFirst(9)
 	list.InsertFirst(10)
 	list.Print()
-	list.PrintReverse()
+	list.InsertLast(25)
+	list.Print()
 }
