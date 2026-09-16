@@ -1,7 +1,7 @@
 package main
 
 import (
-	linkedlist "github.com/aashishdubey1/dsa/linked-list"
+	doublylinkedlist "github.com/aashishdubey1/dsa/linked-list/doublyLinkedList"
 )
 
 func main() {
@@ -11,6 +11,8 @@ func main() {
 	//
 	// linkedlist.RunList()
 
-	linkedlist.RunProblems()
+	// linkedlist.RunProblems()
+	//
+	doublylinkedlist.RunDLL()
 
 }
