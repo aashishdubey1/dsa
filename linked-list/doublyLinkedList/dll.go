@@ -57,6 +57,41 @@ func (list *DLL) InsertLast(val int) {
 	curr.Next = newNode
 }
 
+func (list *DLL) InsertAt(index int, value int) {
+	if index < 0 {
+		fmt.Println("index out of bound")
+		return
+	}
+	newNode := &Node{Value: value}
+	if index == 0 {
+		newNode.Next = list.Head
+		if list.Head != nil {
+			list.Head.Prev = newNode
+		}
+		list.Head = newNode
+		return
+	}
+
+	curr := list.Head
+	for range index - 1 {
+		if curr == nil {
+			fmt.Println("Index out of bound")
+			return
+		}
+		curr = curr.Next
+	}
+	if curr == nil {
+		fmt.Println("index out of bound ")
+		return
+	}
+	newNode.Next = curr.Next
+	if curr.Next != nil {
+		curr.Next.Prev = newNode
+	}
+	curr.Next = newNode
+	newNode.Prev = curr
+}
+
 func RunDLL() {
 
 	list := DLL{}
