@@ -1,18 +1,9 @@
 package main
 
 import (
-	doublylinkedlist "github.com/aashishdubey1/dsa/linked-list/doublyLinkedList"
+	"github.com/aashishdubey1/dsa/linked-list/editor"
 )
 
 func main() {
-
-	// trees.Run()
-
-	//
-	// linkedlist.RunList()
-
-	// linkedlist.RunProblems()
-	//
-	doublylinkedlist.RunDLL()
-
+	editor.RunEditor()
 }
