@@ -1,17 +1,16 @@
 package linkedlist
 
-func ReversList(linkedlist *LinkedList) {
+func ReversList(list *LinkedList) {
 	var prev *Node
-	curr := linkedlist.Head
+	curr := list.Head
 
-	for curr.Next != nil {
+	for curr != nil {
 		next := curr.Next
 		curr.Next = prev
 		prev = curr
 		curr = next
 	}
-	linkedlist.Head = prev
-
+	list.Head = prev
 }
 
 func MiddleNode(list *LinkedList) *Node {
@@ -32,13 +31,30 @@ func HasCycle(list *LinkedList) bool {
 	for fast != nil && fast.Next != nil {
 		slow = slow.Next
 		fast = fast.Next.Next
-
-		if slow == fast {
+		if fast == slow {
 			return true
 		}
 	}
 	return false
 }
+
+// func MergeList(list1 *LinkedList, list2 *LinkedList) *LinkedList {
+//
+// 	c1 := list1.Head
+// 	c2 := list2.Head
+//
+// 	for c1.Next != nil {
+// 		if c1.Value < c2.Value {
+// 			list2.Head = c2.Next
+// 			c2.Next = c1.Next
+// 			c1.Next = c2
+// 		} else if c2.Value < c2.Value {
+//
+// 		}
+//
+// 	}
+//
+// }
 
 func RunProblems() {
 
