@@ -1,7 +1,5 @@
 package stack
 
-import "fmt"
-
 func IsValid(s string) bool {
 	matchingBracket := map[rune]rune{
 		')': '(',
@@ -20,8 +18,4 @@ func IsValid(s string) bool {
 		}
 	}
 	return len(stack) == 0
-}
-
-func RunProblems() {
-	fmt.Println(IsValid("([)]"))
 }

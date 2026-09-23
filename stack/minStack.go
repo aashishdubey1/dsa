@@ -22,7 +22,6 @@ func (ms *MinStack) Pop() (int, bool) {
 	if !ok {
 		return 0, false
 	}
-
 	curr, _ := ms.minStack.Peek()
 	if val == curr {
 		ms.minStack.Pop()
