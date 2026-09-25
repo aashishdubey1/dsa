@@ -1,12 +1,9 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/aashishdubey1/dsa/stack"
+	"github.com/aashishdubey1/dsa/queue"
 )
 
 func main() {
-	fmt.Println(
-		stack.CalcBaseballPoints([]string{"1", "2", "+", "C", "5", "D"}))
+	queue.Run()
 }
